@@ -1,6 +1,5 @@
-package chap1;
+package chap1_chap2;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -9,8 +8,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import static chap1.Color.GREEN;
-import static chap1.Color.RED;
+import static chap1_chap2.Color.GREEN;
+import static chap1_chap2.Color.RED;
 
 public class Sorting {
 
