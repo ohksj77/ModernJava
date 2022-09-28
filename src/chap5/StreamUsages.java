@@ -34,5 +34,19 @@ public class StreamUsages {
 
         List<Dish> dishes2 = specialMenu.stream().filter(d -> d.getCalories() > 300).skip(2).collect(toList());
 
+        List<String> dishNames = menu.stream().map(Dish::getName).collect(toList());
+
+        List<String> words = Arrays.asList("Modern", "Java", "In", "Action");
+
+        List<Integer> wordLengths = words.stream().map(String::length).collect(toList());
+
+        words.stream().map(word -> word.split("")).flatMap(Arrays::stream).distinct().forEach(System.out::print);
+
+        List<Integer> numbers1 = Arrays.asList(1, 2, 3);
+        List<Integer> numbers2 = Arrays.asList(3, 4);
+
+        List<int[]> pairs = numbers1.stream().flatMap(i -> numbers2.stream().map(j -> new int[]{i, j})).collect(toList());
+
+
     }
 }
