@@ -1,6 +1,7 @@
 package chap5;
 
 import chap4.Dish;
+import prac.UserAge;
 
 import java.util.Arrays;
 import java.util.List;
@@ -47,6 +48,14 @@ public class StreamUsages {
 
         List<int[]> pairs = numbers1.stream().flatMap(i -> numbers2.stream().map(j -> new int[]{i, j})).collect(toList());
 
+        List<String> string = Arrays.asList("1", "2", "3");
 
+        string.stream()
+                .mapToInt(Integer::parseInt)
+                .filter(i -> i % 2 == 0)
+                .map(i -> i * 10)
+                .peek(System.out::println)
+                .mapToObj(UserAge::new)
+                .collect(toList());
     }
 }
