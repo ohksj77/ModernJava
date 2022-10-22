@@ -8,20 +8,20 @@ import java.util.stream.Stream;
 
 public class ThreeSixNineController {
 
-    private final List<Integer> numOf369 = List.of(3, 6, 9);
-    private final Predicate<String> has369 = i -> numOf369.stream().anyMatch(o -> i.contains(o.toString()));
+    private final List<String> numOf369 = List.of("3", "6", "9");
+    private final Predicate<String> has369 = i -> numOf369.stream().anyMatch(i::contains);
 
     //@PostMapping
     public String do369(String input) {
-        if (has369.test(input)) return numConverter(input);
+        if (has369.test(input))
+            return numConverter(input);
         return input;
     }
 
     private String numConverter(String str) {
         return Arrays.stream(str.split(""))
-                .mapToInt(Integer::parseInt)
                 .filter(numOf369::contains)
-                .mapToObj(o -> "짝")
+                .map(o -> "짝")
                 .collect(Collectors.joining());
     }
 
@@ -30,7 +30,7 @@ public class ThreeSixNineController {
 class Main {
 
     public static void main(String[] args) {
-        Stream.of(new ThreeSixNineController()).map(i -> i.do369("1244")).forEach(System.out::println);
+        Stream.of(new ThreeSixNineController()).map(i -> i.do369("1294436")).forEach(System.out::println); // 테스트
     }
 
 }
