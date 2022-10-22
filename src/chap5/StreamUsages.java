@@ -57,5 +57,8 @@ public class StreamUsages {
                 .peek(System.out::println)
                 .mapToObj(UserAge::new)
                 .collect(toList());
+
     }
+
 }
+
